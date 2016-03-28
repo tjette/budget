@@ -1,0 +1,42 @@
+<template name="itemLanding">
+<div class="container itemLanding">
+ <a href="/">Back</a>
+ <hr>
+ <h3 class="itemLandingHeader">Item Lander</h3> 
+ 
+ 
+<pre>{{raw}}</pre>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"></h3>
+    {{#each allCategories}}
+  <h3> {{name}}</h3>
+  {{#each allItems}}
+   <div class="well">
+   <div class="btn btn-xs btn-success pull-right payment">Make Payment</div>
+    <div class="btn btn-xs btn-danger pull-right remove">Remove</div>
+    <a href="/snapShot/{{_id}}" class="lead">{{this.item}}
+    <p>Start: {{start}}</p>
+    <p>End: {{end}}</p>
+    <p>Balance: {{balance}}</p>
+    </a>
+    </div>
+      
+    {{/each}}
+
+  
+ 
+ {{/each}}
+    </div>
+
+  <div class="panel-body">
+    <h4 class="totalBalance">Total Balance: {{total}}</h4>
+   
+  </div>
+    
+</div>
+
+
+</div>
+
+</template>
