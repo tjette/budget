@@ -16,6 +16,8 @@ Template.home.events({
     }
 });
 
+  item.balance = parseFloat(item.balance) || parseInt('0');
+
   console.log('theItem',item)
 
   Meteor.call('addItem', item, function(err, suc){

@@ -11,6 +11,9 @@ Template.itemLanding.helpers({
 'allCategories': function(){
   return Categories.find({},{sort:{'name': 1}}).fetch();
 },
+'catBalance':function(){
+  return CatBalance.findOne({'_id':this.name})
+},
  'total': function(){
     return Session.get('totalBalance')
     console.log('total');
@@ -27,10 +30,21 @@ Template.itemLanding.events({
 
 });
 
-Tracker.autorun(function(){
-  if(Items.find().count()) {
-    Meteor.call('totalBalance', function(err, resp){
+Template.itemLanding.onCreated(function(){
+  Meteor.call('totalBalance', function(err, resp){
       Session.set('totalBalance', resp[0].balance || 0)
+      console.log(resp);
     });
-  }
-});
+
+  Meteor.call('totalCategoryBalance',function(err,resp){
+  console.log(resp);
+    _.each(resp,function(e){
+      console.log(e)
+      CatBalance.insert(e); // insert to local collection
+    })
+  })
+
+
+})
+
+

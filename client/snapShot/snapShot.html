@@ -7,12 +7,12 @@
 </div>
 
 <div class="container">
-<form class="item">
+<form class="save">
   <div class="form-group">
   
   <label class="btn btn-default newCategory">New Category</label> 
 <select class="form-control cater" value="{{category}}" name="category" id="selector">
-  <option value="{{thisSnap.category}}">Active--{{thisSnap.category}}</option>
+  <option name="category" value="{{thisSnap.category}}">Active--{{thisSnap.category}}</option>
   {{#each categories}}
   <option value="{{name}}">{{name}}</option>
 
@@ -46,7 +46,7 @@
 <label for="recurring">Recurring Payment</label>
 <input type="checkbox" class="form-control" id="recurring" name="recurring" placeholder="Recurring Payment">
 </div>
-  <div class="saveMe btn btn-lg btn-success">Save</div>
+  <div class="save btn btn-lg btn-success">Save</div>
   <div class="editLinks btn btn-lg btn-danger">Cancel</div>
 </form>
 </div>
