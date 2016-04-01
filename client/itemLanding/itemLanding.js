@@ -17,6 +17,14 @@ Template.itemLanding.helpers({
  'total': function(){
     return Session.get('totalBalance')
     console.log('total');
+  },
+  'type': function(){
+    if(Items.asset === 'on'){
+      return Items.asset
+    } else{
+      return Items.expense
+    }
+    
   }
 });
 

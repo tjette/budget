@@ -32,5 +32,8 @@ Meteor.methods({
 },
  updateItem: function(id, updateObj) {
   return Items.update({'_id': id}, {$set: updateObj});
+ },
+ makePayment: function(payment, paymentValue){
+  return Items.update({'_id': payment }, {$inc: {balance: paymentValue }});
  }
 });
