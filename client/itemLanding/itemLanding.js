@@ -19,11 +19,7 @@ Template.itemLanding.helpers({
     console.log('total');
   },
   'type': function(){
-    if(Items.asset === 'on'){
-      return Items.asset
-    } else{
-      return Items.expense
-    }
+    
     
   }
 });
@@ -33,7 +29,7 @@ Template.itemLanding.events({
     Items.remove(this._id);
   },
   'click .payment': function(){
-    FlowRouter.go('/makePayment');
+    FlowRouter.go('/makePayment/'+this._id);
   }
 
 });

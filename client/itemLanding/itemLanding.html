@@ -1,5 +1,6 @@
 <template name="itemLanding">
-<div class="container itemLanding">
+<div class="container ui grid itemLanding">
+<div class="ui column">
  <a href="/">Back</a>
  <hr>
  <h3 class="itemLandingHeader">Item Lander</h3> 
@@ -16,16 +17,21 @@
   <h4>Category Balance: {{catBalance.balance}} </h4>
   <hr>
   {{#each allItems}}
-   <div class="well">
-    <a href="/makePayment/{{_id}}" class="btn btn-xs btn-success pull-right payment">Make Payment</a>
-    <div class="btn btn-xs btn-danger pull-right remove">Remove</div>
-    <a href="/snapShot/{{_id}}" class="lead">{{this.item}}
-    <p>Type: {{type}}</p>
-    <p>Start: {{start}}</p>
-    <p>End: {{end}}</p>
-    <p>Balance: {{balance}}</p>
-    </a>
+   <div class="ui segment">
+   
+    <h3 class="ui header"><a href="/snapShot/{{_id}}" class="">{{this.item}}</a></h3>
+    <div class="ui list">
+    <p class="item">Type: {{type}}</p>
+    <p class="item">Start: {{start}}</p>
+    <p class="item">End: {{end}}</p>
+    <p class="item">Balance: {{balance}}</p>
     </div>
+     <div class="ui segment">
+    <a href="/makePayment/{{_id}}" class="ui button green">Make Payment</a>
+    <div class="ui button red remove">Remove</div>
+    </div>
+    </div>
+
          
     {{/each}}
 
@@ -42,10 +48,10 @@
   </div>
     
 </div>
-<div class="well">
+<div class="ui segment">
 <h4 class="totalBalance">Total Balance: {{total}}</h4>
 </div>
-
+</div>
 </div>
 
 </template>
