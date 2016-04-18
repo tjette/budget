@@ -17,11 +17,8 @@ Template.itemLanding.helpers({
  'total': function(){
     return Session.get('totalBalance')
     console.log('total');
-  },
-  'type': function(){
-    
-    
   }
+
 });
 
 Template.itemLanding.events({

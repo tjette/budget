@@ -18,9 +18,12 @@ a.homelinks {
   text-align: center;
 }
 
-i.calculator.icon{
-    position:absolute;
-    top:45%;
-    left:45%;
-    
+i.calculator.icon {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+
+}
+.ui.icon.input.endDate.form-group.datetimepicker {
+    margin-left: 34px;
 }
