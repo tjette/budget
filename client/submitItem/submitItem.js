@@ -3,6 +3,7 @@ Template.submitItem.helpers({
     return Categories.find({},{sort:{'name':1}}).fetch();
   }
 
+
 })
 
 Template.submitItem.events({
@@ -49,4 +50,8 @@ Template.submitItem.events({
 
 }
 
+});
+
+Template.submitItem.onRendered(function() {
+  $('.datetimepicker').datetimepicker();
 });
