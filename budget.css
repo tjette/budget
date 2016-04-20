@@ -27,3 +27,6 @@ i.calculator.icon {
 .ui.icon.input.endDate.form-group.datetimepicker {
     margin-left: 34px;
 }
+.ui.center.aligned.container.segment.homeHeader {
+    background-color: grey;
+}

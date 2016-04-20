@@ -1,16 +1,16 @@
 <template name="snapShot">
-<div class="container jumbotron">
+<div class=" ui container segment">
 <h1 class="snapShotHeading">{{thisSnap.item}}</h1>
 
 <a href="/itemLanding">Item Lander</a>
 <a href="/">Home</a>
 </div>
 
-<div class="container">
+<div class=" ui container segment">
 <form class="save">
   <div class="form-group">
   
-  <label class="btn btn-default newCategory">New Category</label> 
+  <label class="ui button newCategory">New Category</label>
 <select class="form-control cater" value="{{category}}" name="category" id="selector">
   <option name="category"  value="{{thisSnap.category}}">Active--{{thisSnap.category}}</option>
   {{#each categories}}
@@ -54,8 +54,8 @@
 <label for="recurring">Recurring Payment</label>
 <input type="checkbox" class="form-control" id="recurring" name="recurring" placeholder="Recurring Payment">
 </div>
-  <div class="save btn btn-lg btn-success">Save</div>
-  <div class="editLinks btn btn-lg btn-danger">Cancel</div>
+  <div class="save ui button">Save</div>
+  <div class="editLinks ui button">Cancel</div>
 </form>
 </div>
   
