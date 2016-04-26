@@ -7,7 +7,7 @@ Template.submitItem.helpers({
 })
 
 Template.submitItem.events({
-"submit .item": function(event, template){
+"submit .submitItem": function(event, template){
   event.preventDefault();
   var inputs = template.findAll('.form-control');
   var item = {};

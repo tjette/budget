@@ -2,7 +2,7 @@
     <div class="classhomePage">
         <h1 class="ui header homeHeader">BUDGET APP</h1><a href=
         "/itemLanding">Item Landing</a>
-        <form class="ui form">
+     <!--    <form class="ui form submitItem">
             <div class="field">
                 <label>First Name</label> <input name="first-name" placeholder=
                 "First Name" type="text">
@@ -17,8 +17,8 @@
                     <label>I agree to the Terms and Conditions</label>
                 </div>
             </div><button class="ui button" type="submit">Submit</button>
-        </form>
-        <form class="ui left aligned form item">
+        </form> -->
+        <form class="ui left aligned form submitItem">
             <div class="field form-group">
                 <label class="ui button newCategory">New Category</label>
                 <select class="form-control cater" id="selector" name=
@@ -26,9 +26,11 @@
                     <option value="">
                         --Select Category--
                     </option>
+                    {{#each categories}}
                     <option value="{{category}}">
                         {{name}}
                     </option>
+                    {{/each}}
                 </select>
             </div>
             <div class="">
@@ -62,13 +64,13 @@
                 <label>Start Date</label> <input class="datepicker" name="startDate" placeholder=
                 "" type="text">
             </div>
-            <div class="ui icon input form-group datetimepicker">
+            <div class="ui icon input form-group">
                 <label for="date">Start Date</label> <input class=
                 "form-control datetimepicker" id="startDate" name="startDate"
                 placeholder="Start Date" type="text" value="{{startDate}}">
                 <i class="calendar icon"></i>
             </div>
-            <div class="ui icon input endDate form-group datetimepicker">
+            <div class="ui icon input endDate form-group ">
                 <label class="endDate" for="date">End Date</label>
                 <input class="form-control datetimepicker" id="endDate" name=
                 "endDate" placeholder="End Date" type="text" value=
