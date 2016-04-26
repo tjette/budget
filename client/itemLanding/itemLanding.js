@@ -28,8 +28,9 @@ Template.itemLanding.events({
   'click .payment': function(){
     FlowRouter.go('/makePayment/'+this._id);
   }
-
 });
+
+
 
 Template.itemLanding.onCreated(function(){
   Meteor.call('totalBalance', function(err, resp){

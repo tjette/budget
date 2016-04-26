@@ -30,6 +30,19 @@ Meteor.methods({
   console.log(result);
   return result;
 },
+
+'totalExpenses': function(){
+  var pipeline = [
+  {$group:{_id: "$type",
+    balance: {
+      $sum: "$balance"
+    }}}
+  ];
+
+  var result = Items.aggregate(pipeline);
+  console.log(result);
+  return result;
+},
  updateItem: function(id, updateObj) {
   return Items.update({'_id': id}, {$set: updateObj});
  },

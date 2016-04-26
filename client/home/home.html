@@ -2,7 +2,7 @@
 
 <div class="ui center aligned container segment homeHeader">
   <h1 class="ui header"> BUDGET APP</h1>
-  <a href="/submitItem" class=" ui blue label homeLinks">Submit Item</a>
+  <a href="/submitItem" class=" ui blue label submitItem homeLinks">Submit Item</a>
 <a href="/itemLanding" class=" ui black label homeLinks">All Items</a>
 </div>
 
@@ -10,6 +10,23 @@
 
 <i class=" massive calculator icon"></i>
 
+</div>
+
+<div class="ui small modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Modal Title
+  </div>
+  <div class=" content">
+    <div class="description">
+      {{>submitItem}}
+    </div>
+  
+  </div>
+  <div class="actions">
+    <div class="ui button">Cancel</div>
+    <div class="ui button">OK</div>
+  </div>
 </div>
 
 

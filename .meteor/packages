@@ -25,4 +25,5 @@ underscore
 ejson
 meteorhacks:aggregate
 semantic:ui-css
-sarasate:semantic-ui-datetimepicker
+numeral:numeral
+drewy:datetimepicker
