@@ -18,7 +18,6 @@ Template.itemLanding.helpers({
     return Session.get('totalBalance')
     console.log('total');
   }
-
 });
 
 Template.itemLanding.events({
@@ -27,7 +26,10 @@ Template.itemLanding.events({
   },
   'click .payment': function(){
     FlowRouter.go('/makePayment/'+this._id);
-  }
+  },
+
+
+
 });
 
 
