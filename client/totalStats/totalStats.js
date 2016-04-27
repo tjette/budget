@@ -5,6 +5,10 @@ Template.totalStats.helpers({
 'incomeBalance':function(){
   return IncomeBalance.findOne()
 },
+'totalBalance': function(){
+  return numeral(IncomeBalance.findOne({}).balance - ExpenseBalance.findOne({}).balance).format('$00.00')
+},
+
 'dolla':function(theItem){
   return numeral(theItem).format('$00.00')
 }
