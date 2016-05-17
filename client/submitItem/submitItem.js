@@ -48,6 +48,10 @@ Template.submitItem.events({
     return false
   }
 
+},
+
+'click #recurring': function(event, template){
+ $('#recurring').text("How often do you recurr?");
 }
 
 });
