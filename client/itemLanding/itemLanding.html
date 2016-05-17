@@ -1,68 +1,68 @@
 <template name="itemLanding">
-<div class="container ui grid itemLanding">
-<div class="ui column">
- <a href="/">Back</a>
- <a href="/totalStats"> Total Stats</a>
- <hr>
- <h3 class="itemLandingHeader">Item Lander</h3> 
+    <div class="container ui grid itemLanding">
+        <div class="ui column">
+            <a href="/">Back</a>
+            <a href="/totalStats"> Total Stats</a>
+            <hr>
+            <h3 class="itemLandingHeader">Item Lander</h3>
 
- <div class="ui category search">
-  <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Search Categories...">    
-    <i class="search icon"></i>
-  </div>
-  <div class="results"></div>
-</div>
+            <div class="ui category search">
+                <div class="ui icon input">
+                    <input class="prompt" type="text" placeholder="Search Categories...">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
 
 
- 
- 
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"></h3>
+                    {{#each allCategories}}
+                        <h1> {{name}}</h1>
+                        <h4>Category Balance: {{catBalance.balance}} </h4>
+                        <hr>
+                        {{#each allItems}}
+                            <div class="ui segment">
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"></h3>
-    {{#each allCategories}}
-  <h1> {{name}}</h1>
-  <h4>Category Balance: {{catBalance.balance}} </h4>
-  <hr>
-  {{#each allItems}}
-   <div class="ui segment">
-   
-    <h3 class="ui snapShot header"><!-- <a href="/snapShot/{{_id}}" class=""> -->{{this.item}}<!-- s --></h3>
-    <div class="ui list">
-    <p class="item">Type: {{type}}</p>
-    <p class="item">Start: {{start}}</p>
-    <p class="item">End: {{end}}</p>
-    <p class="item">Balance: {{balance}}</p>
+                                <h3 class="ui snapShot header"><!-- <a href="/snapShot/{{_id}}" class=""> -->
+                                        {{this.item}}<!-- s --></h3>
+                                <div class="ui list">
+                                    <p class="item">Type: {{type}}</p>
+                                    {{#if recurring}}
+                                        <p class="item">Start: {{date startDate}}</p>
+                                        <p class="item">End: {{date endDate}}</p>
+                                    {{/if}}
+                                    <p class="item">Balance: {{balance}}</p>
+                                </div>
+                                <div class="ui segment">
+                                    <a href="/makePayment/{{_id}}" class="ui button green">Make Payment</a>
+                                    <div class="ui button red remove">Remove</div>
+                                </div>
+                            </div>
+
+
+                        {{/each}}
+
+
+
+                    {{/each}}
+
+                </div>
+
+
+                <div class="panel-body">
+                    <h4 class="totalBalance">Total Balance: {{total}}</h4>
+
+                </div>
+
+            </div>
+            <div class="ui segment">
+                <h4 class="totalBalance">Total Balance: {{total}}</h4>
+            </div>
+        </div>
     </div>
-     <div class="ui segment">
-    <a href="/makePayment/{{_id}}" class="ui button green">Make Payment</a>
-    <div class="ui button red remove">Remove</div>
-    </div>
-    </div>
-
-         
-    {{/each}}
-
-  
- 
- {{/each}}
-
-    </div>
-
-
-  <div class="panel-body">
-    <h4 class="totalBalance">Total Balance: {{total}}</h4>
-   
-  </div>
-    
-</div>
-<div class="ui segment">
-<h4 class="totalBalance">Total Balance: {{total}}</h4>
-</div>
-</div>
-</div>
-{{>totalStats}}
+    {{>totalStats}}
 
 
 </template>

@@ -1,7 +1,7 @@
 <template name="submitItem">
     <div class="classhomePage">
-        <h1 class="ui header homeHeader">BUDGET APP</h1><a href=
-        "/itemLanding">Item Landing</a>
+        <!--<a href=-->
+        <!--"/itemLanding">Item Landing</a>-->
      <!--    <form class="ui form submitItem">
             <div class="field">
                 <label>First Name</label> <input name="first-name" placeholder=
@@ -18,69 +18,79 @@
                 </div>
             </div><button class="ui button" type="submit">Submit</button>
         </form> -->
-        <form class="ui left aligned form submitItem">
-            <div class="field form-group">
-                <label class="ui button newCategory">New Category</label>
-                <select class="form-control cater" id="selector" name=
-                "category">
+        <form class="{{#if loading}}loading{{/if}} ui form submitItem">
+            <div class="field field ui">
+
+                <select class="form-control cater" id="selector" name="category">
                     <option value="">
                         --Select Category--
                     </option>
                     {{#each categories}}
-                    <option value="{{category}}">
+                    <option value="{{_id}}">
                         {{name}}
                     </option>
                     {{/each}}
                 </select>
+                <div class="ui button tiny red newCategory">New Category</div>
             </div>
-            <div class="">
-                <h4>Type</h4>
-            </div>
-            <div class="field form-group">
-                <select class="form-control ui dropdown" id="selector" name=
-                "type">
+
+            <div class="field field ui">
+                <label for="">Type</label>
+                <select class="form-control ui dropdown" id="selector" name="type">
                     <option value="">
-                        Type
+                        -- select type --
                     </option>
-                    <option value="{{income}}">
+                    <option value="income">
                         Income
                     </option>
-                    <option value="{{expense}}">
+                    <option value="expense">
                         Expense
                     </option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="field ui">
                 <label for="nameofItem">Item</label> <input class=
                 "form-control" id="item" name="item" placeholder="Name" type=
                 "text" value="{{item}}">
             </div>
-            <div class="form-group">
+
+            <div class="ui field">
                 <label for="amount">Current Balance</label> <input class=
                 "form-control" id="amount" name="balance" placeholder=
                 "Current Balance" type="number" value="{{balance}}">
             </div>
-             <div class="field">
-                <label>Start Date</label> <input class="datepicker" name="startDate" placeholder=
-                "" type="text">
+
+            <div class="field ui">
+            <div class="ui checkbox recurCheck field">
+                <input type="checkbox" class="form-control" id="recurring" name="recurring">
+                <label>Recurring payment</label>
             </div>
-            <div class="ui icon input form-group">
-                <label for="date">Start Date</label> <input class=
+            </div>
+
+
+            <!--IF RECCURING-->
+
+
+            {{#if recur}}
+            <div class="field ui">
+                <label>Start Date</label>
+                <input class=
                 "form-control datetimepicker" id="startDate" name="startDate"
                 placeholder="Start Date" type="text" value="{{startDate}}">
-                <i class="calendar icon"></i>
             </div>
-            <div class="ui icon input endDate form-group ">
+
+            <div class="field ui">
                 <label class="endDate" for="date">End Date</label>
                 <input class="form-control datetimepicker" id="endDate" name=
                 "endDate" placeholder="End Date" type="text" value=
-                "{{endDate}}"> <i class="calendar icon"></i>
+                "{{endDate}}">
             </div>
-            <div class="form-group ui toggle checkbox">
-             <input type="checkbox" class="form-control" id="recurring" name="recurring">
-                <label>Recurring payment</label>
-            </div>
-            <div class="form-group">
+            {{else}}
+                <!--<code>not recurring</code>-->
+            {{/if}}
+
+
+            <div class="field ui">
             <button class="ui button" type="submit">Submit</button>
         </div>
         </form>

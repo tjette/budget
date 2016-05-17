@@ -6,14 +6,17 @@ Template.itemLanding.helpers({
   return EJSON.stringify(Items.findOne(Session.get('theItem')),{'indent':true})
 },
 'allItems': function(){
-  return Items.find({'category':this.name}).fetch();
+  return Items.find({'category':this._id}).fetch();
 },
 'allCategories': function(){
   return Categories.find({},{sort:{'name': 1}}).fetch();
 },
 'catBalance':function(){
-  return CatBalance.findOne({'_id':this.name})
+  return CatBalance.findOne({'_id':this._id})
 },
+    'date':function(theDate){
+        return moment(theDate).format('M/DD/YYYY')
+    },
  'total': function(){
     return Session.get('totalBalance')
     console.log('total');

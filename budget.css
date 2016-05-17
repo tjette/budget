@@ -30,3 +30,10 @@ i.calculator.icon {
 .ui.center.aligned.container.segment.homeHeader {
     background-color: grey;
 }
+form.ui.left.aligned.form.submitItem {
+    min-height: 1000px;
+}
+.ui.button.tiny.red.newCategory {
+    margin-top: 10px;
+    float: right;
+}
