@@ -7,54 +7,50 @@
 </div>
 
 <div class=" ui container segment">
-<form class="save">
+<form class="{{#if loading}}loading{{/if}} save ui form">
   <div class="form-group">
   
   <label class="ui button newCategory">New Category</label>
+   
 <select class="form-control cater" value="{{category}}" name="category" id="selector">
-  <option name="category"  value="{{thisSnap.category}}">Active--{{thisSnap.category}}</option>
-  {{#each categories}}
-  <option value="{{name}}">{{name}}</option>
+ {{#each categories}}
 
-  {{/each}}
-  
-  
+  <option name="name"  value="{{name}}">{{name}}</option>
+ 
+{{/each}}
 </select>
 
+
   </div>
-  <div class="form-group">
-<label for="Asset">Asset</label>
-<input type="checkbox" class="form-control" id="recurring" name="asset" placeholder="Asset" value="{{thisSnap.asset}}">
-</div>
- <div class="form-group">
-<label for="Expense">Expense</label>
-<input type="checkbox" class="form-control" id="recurring" name="expense" placeholder="Expense" value="{{thisSnap.expense}}">
-</div>
-  <div class="form-group">
+<div class="ui field">
     <label for="nameofItem">Item</label>
     <input type="text" class="form-control" id="item" name="item" value="{{thisSnap.item}}" placeholder="Name">
   </div>
-  <div class="form-group">
+    <div class="ui field">
+<label for="Type">Type</label>
+<input type="text" class="form-control" id="type" name="type" placeholder="type" value="{{thisSnap.type}}">
+</div>
+  <div class="ui field">
     <label for="startDate">Start</label>
     <input type="date" class="form-control" id="start" name="start" value="{{thisSnap.start}}" placeholder="Start">
   </div>
-  <div class="form-group">
+  <div class="ui field">
     <label for="endDate">End</label>
     <input type="date" class="form-control" id="end" name="end" value="{{thisSnap.end}}" placeholder="End">
   </div>
-  <div class="form-group">
+  <div class="ui field">
  <label for="amount">Amount</label>
  <input type="number" class="form-control" id="amount" name="balance" value="{{thisSnap.balance}}" placeholder="Amount">
   </div>
-<div class="form-group">
+<div class="ui field">
 <label for="date">Date</label>
 <input type="date" class="form-control" id="date" name="date" value="{{thisSnap.date}}" placeholder="Date">
 </div>
-<div class="form-group">
+<div class="ui field">
 <label for="recurring">Recurring Payment</label>
-<input type="checkbox" class="form-control" id="recurring" name="recurring" placeholder="Recurring Payment">
+<input type="checkbox" class="form-control" id="recurring" name="recurring" value="{{thisSnap.recurring}}" placeholder="Recurring Payment">
 </div>
-  <div class="save ui button">Save</div>
+  <button type="submit" class="save ui button">Save</button>
   <div class="editLinks ui button">Cancel</div>
 </form>
 </div>

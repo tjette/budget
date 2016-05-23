@@ -20,7 +20,14 @@ Template.itemLanding.helpers({
  'total': function(){
     return Session.get('totalBalance')
     console.log('total');
-  }
+  },
+  'dolla':function(theItem){
+  return numeral(theItem).format('$00.00')
+},
+'editing':function(){
+  return Items.find({'id':Session.get('theSnap')}).fetch();
+
+}
 });
 
 Template.itemLanding.events({
@@ -30,6 +37,28 @@ Template.itemLanding.events({
   'click .payment': function(){
     FlowRouter.go('/makePayment/'+this._id);
   },
+  'click .edit': function(){
+  return FlowRouter.go("/itemLanding/" + this._id);
+},
+'click .save': function(event, template){
+  event.preventDefault();
+  
+  var inputs = template.findAll('.form-control');
+
+  var updateObj = Items.findOne(Session.get('theSnap'));
+
+  _.each(inputs, function(inp, ite){
+    if(inp.name && inp.value){
+        return updateObj[inp.name] = inp.value;
+    }
+  });
+
+    updateObj.balance = parseFloat(updateObj.balance) || parseInt('0');
+
+
+  Meteor.call('updateItem', Session.get('theItem'), updateObj);
+
+}
 
 
 

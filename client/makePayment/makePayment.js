@@ -20,8 +20,11 @@ Template.makePayment.events({
         console.log('nope it didnt ', err)
       }
   });
-  }else{
-    return false
+  }else if(paymentAmount > balanceAmount){
+   alert("You now have a credit for this item!")
+  } else{
+   return false
   }
   }
+
 });

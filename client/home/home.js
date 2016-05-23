@@ -10,3 +10,10 @@ Template.home.events({
   }
 });
 
+Template.home.onRendered(function () {
+$('.activating.icon')
+  .popup()
+;
+
+});
+
