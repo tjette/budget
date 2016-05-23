@@ -27,7 +27,10 @@ Template.itemLanding.helpers({
 'editing':function(){
   return Items.find({'id':Session.get('theSnap')}).fetch();
 
-}
+},
+    'gitHub': function(){
+        return Session.get('gitHubProfile');
+    }
 });
 
 Template.itemLanding.events({
@@ -78,7 +81,16 @@ Template.itemLanding.onCreated(function(){
       console.log(e)
       CatBalance.insert(e); // insert to local collection
     })
-  })
+  }),
+
+      $.get('https://api.github.com/users/tjette',function(resp){
+          console.log(resp)
+          Session.set('gitHubProfile',resp);
+      });
+
+
+
+
 
 
 })
