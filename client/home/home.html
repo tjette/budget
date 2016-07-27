@@ -1,5 +1,20 @@
 <template name="home">
+    <div class="ui inverted menu">
+        <a  href="/" class="item">
+            Home
+        </a>
+        <a href="/itemLanding" class="item">
+            Items
+        </a>
+        <a href="/totalStats" class="item active">Stats
+        </a>
+        <a href="/totalStats" class="item active">
+            {{thisUser}}
+        </a>
+        <code><a class="text-danger text-muted right" style="color:#8B0000" href="#" onclick="Meteor.logout()">logout</a></code>
 
+    </div>
+{{>atForm}}
 <div class="ui center aligned container segment homeHeader">
   <h1 class="ui header"> BUDGET APP</h1>
   <a href="/submitItem" data-content="Submit an Item" class=" ui icon activating blue label submitItem homeLinks">Submit Item</a>
@@ -21,8 +36,9 @@
     <div class="description">
       {{>submitItem}}
     </div>
-  
+      {{>totalStats}}
   </div>
+
  
 </div>
 

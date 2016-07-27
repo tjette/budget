@@ -12,8 +12,11 @@ Template.itemLanding.helpers({
   return Categories.find({},{sort:{'name': 1}}).fetch();
 },
 'catBalance':function(){
-  return CatBalance.findOne({'_id':this._id})
-},
+    var theBal =  CatBalance.findOne({'_id': this._id})
+    if(theBal.balance){
+        return theBal;
+    }
+    },
     'date':function(theDate){
         return moment(theDate).format('M/DD/YYYY')
     },
@@ -22,8 +25,10 @@ Template.itemLanding.helpers({
     console.log('total');
   },
   'dolla':function(theItem){
-  return numeral(theItem).format('$00.00')
-},
+  if(theItem) {
+      return numeral(theItem).format('$00.00')
+  }
+  },
 'editing':function(){
   return Items.find({'id':Session.get('theSnap')}).fetch();
 
@@ -83,7 +88,9 @@ Template.itemLanding.onCreated(function(){
     })
   }),
 
-      $.get('https://api.github.com/users/tjette',function(resp){
+      $.get('https://api.github.com/users/tjette',{
+
+      },function(resp){
           console.log(resp)
           Session.set('gitHubProfile',resp);
       });
