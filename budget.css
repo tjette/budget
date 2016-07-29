@@ -37,3 +37,10 @@ form.ui.left.aligned.form.submitItem {
     margin-top: 10px;
     float: right;
 }
+.ui.inverted.menu {
+    padding-top: 20px;
+}
+.ui.stacked.segment {
+    width: 75%;
+    margin-left: 200px;
+}

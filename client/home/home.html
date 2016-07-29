@@ -1,17 +1,6 @@
 <template name="home">
     <div class="ui inverted menu">
-        <a  href="/" class="item">
-            Home
-        </a>
-        <a href="/itemLanding" class="item">
-            Items
-        </a>
-        <a href="/totalStats" class="item active">Stats
-        </a>
-        <a href="/totalStats" class="item active">
-            {{thisUser}}
-        </a>
-        <code><a class="text-danger text-muted right" style="color:#8B0000" href="#" onclick="Meteor.logout()">logout</a></code>
+{{>nav}}
 
     </div>
 {{>atForm}}

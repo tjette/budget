@@ -8,11 +8,17 @@
         <a href="/itemLanding" class="item">
             Items
         </a>
-        <a href="/totalStats" class="item active">Stats
+        <a href="/totalStats" class="item">Stats
+        </a>
+
+        <a  href="/profile" class="item">
+          Profile
         </a>
         <a  href="/" class="item">
-            {{currentUser._id}}
+            {{thisUser}} - Logged In
         </a>
+        <code><a class="text-danger text-muted right floated" style="color:#8B0000" href="#" onclick="Meteor.logout()">logout</a></code>
+
 
     </div>
 
