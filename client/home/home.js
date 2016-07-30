@@ -8,9 +8,12 @@ Template.home.helpers({
 Template.home.events({
 "click .submitItem":function(event, template){
     event.preventDefault();
-    $('.small.modal').modal('show');
-
-  }
+       if(Meteor.user) {
+        $('.small.modal').modal('show');
+      } else {
+        alert("Need to be logged in");
+      }
+ }     
 });
 
 Template.home.onRendered(function () {
