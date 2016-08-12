@@ -2,7 +2,9 @@ Meteor.methods({
   addItem: function (item) {
     return Items.insert(item);
   },
-
+  addProfile: function(profile){
+      return Profile.insert(profile);
+  },
   addCategory: function (category){
   return Categories.insert(category);
  },

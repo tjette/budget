@@ -4,14 +4,14 @@
         <h1 class="profileHeader">{{thisUser}} Profile </h1>
     </div>
 <div class="ui container">
-    <form class="ui form">
+    <form class="ui form profile">
         <div class="field">
             <label>First Name</label>
-            <input type="text" name="first-name" placeholder="First Name">
+            <input class="firstName" type="text" name="first-name" placeholder="First Name">
         </div>
         <div class="field">
             <label>Last Name</label>
-            <input type="text" name="last-name" placeholder="Last Name">
+            <input class="lastName" type="text" name="last-name" placeholder="Last Name">
         </div>
         <div class="field">
             <div class="ui checkbox">
@@ -21,5 +21,9 @@
         </div>
         <button class="ui button" type="submit">Submit</button>
     </form>
+
+
 </div>
+    {{profile}}
+
 </template>

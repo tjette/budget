@@ -27,27 +27,35 @@
   <h1> {{name}}</h1>
   <h4>Category Balance: {{dolla catBalance.balance}} </h4>
   <hr>
+            {{#if allItems}}
   {{#each allItems}}
-   <div class="ui segment">
-   
-    <h3 class="ui snapShot header"><!-- <a href="/snapShot/{{_id}}" class=""> -->{{this.item}}<!-- s --></h3>
-    <div class="ui list">
-    <p class="item">Type: {{type}}</p>
-    <p class="item">Start: {{start}}</p>
-    <p class="item">End: {{end}}</p>
-    <p class="item">Balance: {{dolla balance}}</p>
-    </div>
-     <div class="ui segment">
-    <a href="/makePayment/{{_id}}" class="ui button green">Make Payment</a>
-    <div class="ui button red remove">Remove</div>
-    <div class="ui button green edit"> Edit</div>
-    </div>
+
+
+
+    <div class="ui segment">
+
+        <h3 class="ui snapShot header"><!-- <a href="/snapShot/{{_id}}" class=""> -->{{this.item}}<!-- s --></h3>
+        <div class="ui list">
+            <p class="item">Type: {{type}}</p>
+            <p class="item">Start: {{start}}</p>
+            <p class="item">End: {{end}}</p>
+            <p class="item balanceAmount">Balance: {{dolla balance}}</p>
+        </div>
+        <div class="ui segment">
+            <a href="/makePayment/{{_id}}" class="ui button green">Make Payment</a>
+            <div class="ui button red remove">Remove</div>
+            <div class="ui button green edit"> Edit</div>
+        </div>
     </div>
 
-         
-    {{/each}}
 
-  
+
+  {{/each}}
+            {{else}}
+                <h2>No Items</h2>
+            {{/if}}
+
+
  {{/if}}
  {{/each}}
 

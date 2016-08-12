@@ -6,7 +6,8 @@ Template.itemLanding.helpers({
   return EJSON.stringify(Items.findOne(Session.get('theItem')),{'indent':true})
 },
 'allItems': function(){
-  return Items.find({'category':this._id}).fetch();
+    console.log("allItems", Items.find({'category':this._id}).fetch());
+    return Items.find({'category':this._id}).fetch();
 },
 'allCategories': function(){
   return Categories.find({},{sort:{'name': 1}}).fetch();
@@ -30,17 +31,37 @@ Template.itemLanding.helpers({
   }
   },
 'editing':function(){
-  return Items.find({'id':Session.get('theSnap')}).fetch();
+  return Items.find({'id':Session.get('theSnap')}).fetch()
 
 },
     'gitHub': function(){
         return Session.get('gitHubProfile');
+    },
+    'noitems': function() {
+        if (Items.find({}).count() === 0) {
+            return "No Item's At This Time"
+        }
+
     }
+
+
+
+
 });
 
 Template.itemLanding.events({
   'click .remove': function(){
-    Items.remove(this._id);
+      if(Items.balance <= 0) {
+          Items.remove(this._id);
+      } else{
+          var remove = confirm("Are you sure you want to remove this Item? The balance is still " + this.balance + ".");
+
+          if(remove === true){
+              return Items.remove(this._id)
+          } else{
+
+          }
+      }
   },
   'click .payment': function(){
     FlowRouter.go('/makePayment/'+this._id);
